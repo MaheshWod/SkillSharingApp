@@ -1,23 +1,18 @@
 import mongoose from "mongoose";
-// Define the schema for the item
-const orderSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
+
+export const itemSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
   },
-  {
-    timestamps: true, // Automatically add createdAt and updatedAt timestamps
-  }
-);
+  price: {
+    type: Number,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+});
 
-// Compile the schema into a model
-const Item = mongoose.model("Item", orderSchema);
-
-
-export default Item;
+export const Item = mongoose.model("Item", itemSchema);
